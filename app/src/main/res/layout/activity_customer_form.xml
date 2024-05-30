@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_marginHorizontal="24dp"
+    android:orientation="vertical"
+    tools:context=".CustomerFormActivity">
+
+
+    <EditText
+        android:id="@+id/inpt_name_customer"
+        style="@style/EditInputForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/nome_do_cliente" />
+
+    <EditText
+        android:id="@+id/inpt_telefone_customer"
+        style="@style/EditInputForm"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/telefone_cliente" />
+
+    <EditText
+        android:id="@+id/inpt_endereco_customer"
+        style="@style/EditInputForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/endereco_cliente" />
+
+    <EditText
+        android:id="@+id/inpt_complemento_customer"
+        style="@style/EditInputForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/complemento_cliente" />
+
+    <Button
+        android:id="@+id/button"
+        android:paddingVertical="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/salvar" />
+
+
+</LinearLayout>

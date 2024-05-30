@@ -2,4 +2,9 @@
     <string name="app_name">Vendinha</string>
     <string name="novo_cliente">Novo Cliente</string>
     <string name="clientes">Clientes</string>
+    <string name="nome_do_cliente">Nome do cliente</string>
+    <string name="telefone_cliente">Telefone</string>
+    <string name="endereco_cliente">Endereço</string>
+    <string name="complemento_cliente">Complemento\n</string>
+    <string name="salvar">Salvar</string>
 </resources>

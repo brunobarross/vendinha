@@ -1,6 +1,8 @@
 package com.altamirobruno.vendinha
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -40,23 +43,47 @@ class MainActivity : AppCompatActivity() {
 
             )
         )
-        val mainAdapter = MainAdapter(dataSet)
+        val adapter = MainAdapter(dataSet){ id ->
+            println(id)
+            when(id){
+                1 -> {
+                    val intent = Intent(this@MainActivity, CustomerFormActivity::class.java)
+                    startActivity(intent)
+                }
+                2 -> {
+                    val intent = Intent(this@MainActivity, CostumersActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            Log.i("Teste", "clicou $id!!")
+
+        }
+
         val recyclerView: RecyclerView = findViewById(R.id.main_rv)
-        recyclerView.adapter = mainAdapter
+        recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.addItemDecoration(GridSpacingItemDecoration(2, 24, true))
 
 
     }
 
-    private inner class MainAdapter(private val dataSet: MutableList<DataSet>) :
+    private inner class MainAdapter
+        (
+        private val dataSet: MutableList<DataSet>,
+        private val onItemClickListener: (Int) -> Unit,
+    ) :
         RecyclerView.Adapter<MainAdapter.ViewHolder>() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            fun bind(item: DataSet){
+            fun bind(item: DataSet) {
                 val name: TextView = itemView.findViewById(R.id.main_item_text)
                 val icon: ImageView = itemView.findViewById(R.id.main_item_icon)
+                val container: ConstraintLayout = itemView.findViewById(R.id.main_item_wrapper)
                 name.setText(item.name)
                 icon.setImageResource(item.icon)
+                container.setOnClickListener{
+                    onItemClickListener.invoke(item.id)
+                }
+
 
             }
         }
