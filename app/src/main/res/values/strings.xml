@@ -7,4 +7,5 @@
     <string name="endereco_cliente">Endereço</string>
     <string name="complemento_cliente">Complemento\n</string>
     <string name="salvar">Salvar</string>
+    <string name="erro_cadastro_cliente">Todos os campos devem estar preenchidos.</string>
 </resources>

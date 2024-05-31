@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.altamirobruno.vendinha.Customer
 
-@Database(entities = [Customer::class], version = 1)
+@Database(entities = [Customer::class], version = 3)
 @TypeConverters(DateConverter::class)
 
 abstract class AppDatabase : RoomDatabase() {
