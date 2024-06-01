@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         dataSet.add(
             DataSet(
                 id = 1,
-                icon = R.drawable.baseline_add_24,
+                group =  R.string.clientes,
+                icon = R.drawable.person_add_outline,
                 name = R.string.novo_cliente
 
             )
@@ -38,8 +39,9 @@ class MainActivity : AppCompatActivity() {
         dataSet.add(
             DataSet(
                 id = 2,
-                icon = R.drawable.search_outline,
-                name = R.string.clientes
+                group = R.string.clientes,
+                icon = R.drawable.people_outline,
+                name = R.string.ver_todos
 
             )
         )
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.main_rv)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-        recyclerView.addItemDecoration(GridSpacingItemDecoration(2, 24, true))
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(2, 48, true))
 
 
     }
@@ -75,6 +77,7 @@ class MainActivity : AppCompatActivity() {
         RecyclerView.Adapter<MainAdapter.ViewHolder>() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bind(item: DataSet) {
+                val group: TextView = itemView.findViewById(R.id.main_item_group)
                 val name: TextView = itemView.findViewById(R.id.main_item_text)
                 val icon: ImageView = itemView.findViewById(R.id.main_item_icon)
                 val container: ConstraintLayout = itemView.findViewById(R.id.main_item_wrapper)

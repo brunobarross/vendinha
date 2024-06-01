@@ -37,7 +37,9 @@ class CostumersActivity : AppCompatActivity() {
             val dao = app.db.customerDao()
             val response = dao.getAll()
             customers.addAll(response)
-            adapter.notifyDataSetChanged()
+            runOnUiThread{
+                adapter.notifyDataSetChanged()
+            }
 
         }.start()
 
